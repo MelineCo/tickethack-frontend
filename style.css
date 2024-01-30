@@ -19,6 +19,7 @@ body {
    }
    
  #links {
+    font-family: 'Nunito', sans-serif;
     display: flex;
     height:120px;
     width: 200px;
@@ -64,6 +65,7 @@ body {
     background-color: rgb(239, 236, 233);
     justify-content: space-around;
     text-align: center;
+    font-family: 'Nunito', sans-serif;
  }
 
  #search-param {
@@ -115,6 +117,7 @@ body {
  #nameWebsite{
     margin-left: 20px ;
     color:rgb(70, 111, 106);
+    font-family: 'Nunito', sans-serif;
  }
 
  input {
