@@ -31,12 +31,30 @@ body {
    text-decoration: none;
 }
 
-#container-class {
+#big-container {
    background-image: url("./images/background.jpg");
    background-size: cover;
-   border: 2px #1C6EA4;
    width: 100vw;
    height: 100vh;
+   color: #fff;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+}
+
+h2 {
+   font-size: 40px;
+   text-align: center;
+   margin-top: 80px;
+}
+p {
+   font-size: 20px;
+   text-align: center;
+}
+
+#container-class {
+   margin-top: 100px;
    display: flex;
    flex-direction: row;
    justify-content: center;
