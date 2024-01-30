@@ -65,7 +65,7 @@ h2 {
     margin: 20px 40px;
 }
 
-.purchase-btn {
+#purchase-btn {
     background-color: #4da990;
     color: #ffffff;
     border-radius: 5px;
