@@ -2,17 +2,55 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-    <title>TicketHack !!!!</title>
+    <title>TicketHack Project</title>
 </head>
 
-<body>
 
+<body id="container">
+    
+        <div id="header">
+            <div id="nameWebsite">
+                <h1 class="logo-text">Tickethack</h1>
+            </div>
+            <div id="links">
+                <div>
+                    <a href="https://" target="_blank" rel="nofollow" id="link-cart"> Cart </a>
+                </div>
+                <div>
+                     <a href="https://" target="_blank" rel="nofollow" id="link-bookings"> Bookings </a>
+                </div>
+            </div>
+        </div>  
+    <div id="container-class">
+        <!-- <img src="tickethack-frontend/images/background.jpg"> -->
+        <div id="search-container">
+            <div id="search-param">
+                <input id="search-departure" type="text" placeholder=" 🔎 Departure">
+                <input id="search-arrival" type="text" placeholder=" 🔎 Arrival">
+            </div>
+            <div id="calendar">   
+                <input id="search-date" type="date" placeholder="date">
+            </div>      
+            <div id ="search-button">
+                <button type="button" id="btn-search">Search</button>
+            </div>
+        </div>
+        
+        <div id="bookins-container">
+            <div id="logo-container">
+                <img class="logo" src="images/train.png">
+                <h4 class="logo-text">It's time to book your futur trip !</h4>
+            </div>
+        </div>
+    </div>
+ 
     <script src="script.js"></script>
 </body>
 
