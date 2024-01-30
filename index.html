@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -14,35 +14,37 @@
 
 
 <body id="container">
-    
-        <div id="header">
-            <div id="nameWebsite">
-                <h1 class="logo-text">Tickethack</h1>
+
+    <div id="header">
+        <div id="nameWebsite">
+            <h1 class="logo-text">Tickethack</h1>
+        </div>
+        <div id="links">
+            <div>
+                <a href="https://" target="_blank" rel="nofollow" id="link-cart"> Cart </a>
             </div>
-            <div id="links">
-                <div>
-                    <a href="https://" target="_blank" rel="nofollow" id="link-cart"> Cart </a>
-                </div>
-                <div>
-                     <a href="https://" target="_blank" rel="nofollow" id="link-bookings"> Bookings </a>
-                </div>
+            <div>
+                <a href="https://" target="_blank" rel="nofollow" id="link-bookings"> Bookings </a>
             </div>
-        </div>  
+        </div>
+    </div>
+
     <div id="container-class">
         <!-- <img src="tickethack-frontend/images/background.jpg"> -->
         <div id="search-container">
             <div id="search-param">
-                <input id="search-departure" type="text" placeholder=" 🔎 Departure">
-                <input id="search-arrival" type="text" placeholder=" 🔎 Arrival">
+                <input class="search-input" type="text" placeholder="Departure">
+                <div class="divider"></div>
+                <input class="search-input" type="text" placeholder="Arrival">
             </div>
-            <div id="calendar">   
+            <div id="calendar">
                 <input id="search-date" type="date" placeholder="date">
-            </div>      
-            <div id ="search-button">
+            </div>
+            <div id="search-button">
                 <button type="button" id="btn-search">Search</button>
             </div>
         </div>
-        
+
         <div id="bookins-container">
             <div id="logo-container">
                 <img class="logo" src="images/train.png">
@@ -50,7 +52,7 @@
             </div>
         </div>
     </div>
- 
+
     <script src="script.js"></script>
 </body>
 
