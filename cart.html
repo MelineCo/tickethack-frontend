@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style-cart.css">
+    <title>Cart</title>
+</head>
+
+<body>
+    <div id="cart-container">
+        <h2>My cart</h2>
+        <div id="my-cart">
+
+            <div class="trip-container">
+                <div class="trip-element">Paris > Valence</div>
+                <div class="trip-element">20:09</div>
+                <div class="trip-element">103€</div>
+                <input class="delete-btn trip-element" type="button" value="X" />
+            </div>
+            <div class="trip-container">
+                <div class="trip-element">Paris > Valence</div>
+                <div class="trip-element">20:09</div>
+                <div class="trip-element">103€</div>
+                <input class="delete-btn trip-element" type="button" value="X" />
+            </div>
+            <div class="trip-container">
+                <div class="trip-element">Paris > Valence</div>
+                <div class="trip-element">20:09</div>
+                <div class="trip-element">103€</div>
+                <input class="delete-btn trip-element" type="button" value="X" />
+            </div>
+
+        </div>
+        <div id="purchase">
+            <div class="purchase">Total : <span id="total"></span>€</div>
+            <input class="purchase purchase-btn" type="button" value="Purchase" />
+        </div>
+    </div>
+    <script src="script-cart.js"></script>
+</body>
+
+</html>
