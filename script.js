@@ -7,23 +7,27 @@ document.querySelector('#btn-search').addEventListener('click', function(){
     const arrival = document.querySelector('#search-arrival').value;
     const date = document.querySelector('#search-date').value;
 
-    console.log(date)
+    // console.log(date)
+    // console.log(newTrip = {departure, arrival, date})  
 
-    console.log(newTrip = {departure, arrival, date})  
+if (departure === '' || arrival === '' ) { 
+        document.querySelector('#bookings-container').innerHTML = `
+            <img class="logo" src="images/notfound.png">
+            <h4 class="logo-text">No trips found.</h4>
+        `
+} else {
 
-    console.log(`http://localhost:3000/trips/${departure}/${arrival}/${date}`)
+    // console.log(`http://localhost:3000/trips/${departure}/${arrival}/${date}`)
     
     fetch(`http://localhost:3000/trips/${departure}/${arrival}/${date}`)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data.trip)
         // Vérifier si trajet existe sinon renvoyer logo Trip not found.
         if (data.Alltrips.length === 0) {
         document.querySelector('#bookings-container').innerHTML = `
-            
-                <img class="logo" src="images/notfound.png">
-                <h4 class="logo-text">No trips found.</h4>
-            
+            <img class="logo" src="images/notfound.png">
+            <h4 class="logo-text">No trips found.</h4>
         `
        } else { // Si trajet trouvé creer liste des trajets dans bookings containers
         console.log(data.Alltrips.length)
@@ -42,9 +46,9 @@ document.querySelector('#btn-search').addEventListener('click', function(){
           
         }
         buttonAddListener()
-}
+        }
 });
-})
+}})
 
 // fonction écouteur d'évenement bouton 
 function buttonAddListener() {
@@ -72,14 +76,10 @@ function buttonAddListener() {
                         .then(response => response.json())
                         .then(data => {
                         console.log('New trip added to Booking', data);
-                });    
-            })
-
-               
-
-       }
-       // AddEventListener clik pour changer de page vers carts
+                            document.location.href = "cart.html"
+                          });    
+                })
+       }       
        )
     };
 }
-
