@@ -1,4 +1,4 @@
-fetch('http://localhost:3000/bookings/')
+fetch('https://tickethack-backend-umber.vercel.app/bookings/')
     .then(response => response.json())
     .then(data => {
         if (data.AllBookings) {
@@ -35,7 +35,7 @@ fetch('http://localhost:3000/bookings/')
 function updateDeleteTripEventListener() {
     for (let i = 0; i < document.querySelectorAll('.delete-btn').length; i++) {
         document.querySelectorAll('.delete-btn')[i].addEventListener('click', function () {
-            fetch(`http://localhost:3000/bookings/delete/${this.id}`, { method: 'DELETE' })
+            fetch(`https://tickethack-backend-umber.vercel.app/bookings/delete/${this.id}`, { method: 'DELETE' })
                 .then(response => response.json())
                 .then(data => {
                     if (data.result) {
@@ -59,7 +59,7 @@ function calculTotal() {
 function purchaseEventListener(){
     document.querySelector('#purchase-btn').addEventListener('click', function () {
         console.log('click purchase')
-        fetch(`http://localhost:3000/bookings/update`, { method: 'PUT' })
+        fetch(`https://tickethack-backend-umber.vercel.app/bookings/update`, { method: 'PUT' })
             .then(response => response.json())
             .then(data => {
                 if (data.result) {
