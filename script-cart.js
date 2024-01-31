@@ -19,7 +19,7 @@ fetch('http://localhost:3000/bookings/')
                 </div>
 			`;
             }
-            updateDeleteCityEventListener();
+            updateDeleteTripEventListener();
             
 
             document.querySelector('#purchase').innerHTML = `
@@ -32,7 +32,7 @@ fetch('http://localhost:3000/bookings/')
         }
     });
 
-function updateDeleteCityEventListener() {
+function updateDeleteTripEventListener() {
     for (let i = 0; i < document.querySelectorAll('.delete-btn').length; i++) {
         document.querySelectorAll('.delete-btn')[i].addEventListener('click', function () {
             fetch(`http://localhost:3000/bookings/delete/${this.id}`, { method: 'DELETE' })
