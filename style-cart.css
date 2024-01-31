@@ -65,10 +65,10 @@ p {
 
 .trip-element {
     margin: 20px;
-    width: 160px;
+    width: 180px;
 }
 .trip-element-small{
-    width: 100px;
+    width: 50px;
 }
 
 .delete-btn {

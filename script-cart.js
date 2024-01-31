@@ -13,8 +13,8 @@ fetch('https://tickethack-backend-umber.vercel.app/bookings/')
                 document.querySelector('#my-cart').innerHTML += `
                 <div class="trip-container" id="${data.AllBookings[i]._id}">
                     <div class="trip-element">${data.AllBookings[i].departure} > ${data.AllBookings[i].arrival}</div>
-                    <div class="trip-element">${data.AllBookings[i].date.split('T')[1].substring(0, 5)}</div>
-                    <div class="trip-element price">${data.AllBookings[i].price}€</div>
+                    <div class="trip-element-small">${data.AllBookings[i].date.split('T')[1].substring(0, 5)}</div>
+                    <div class="trip-element-small price">${data.AllBookings[i].price}€</div>
                     <input class="delete-btn trip-element"id="${data.AllBookings[i]._id}" type="button" value="X" />
                 </div>
 			`;
