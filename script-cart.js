@@ -27,6 +27,7 @@ fetch('http://localhost:3000/bookings/')
                 <input class="purchase" id="purchase-btn" type="button" value="Purchase" />
             `
             calculTotal();
+            purchaseEventListener();
             cartIsEmpty();
         }
     });
@@ -55,15 +56,20 @@ function calculTotal() {
     document.querySelector('#total').textContent = total;
 }
 
-document.querySelector('#purchase-btn').addEventListener('click', function () {
-    fetch(`http://localhost:3000/bookings/update`, { method: 'PUT' })
-        .then(response => response.json())
-        .then(data => {
-            if (data.result) {
-                document.location.href = "bookings.html"
-            }
-        });
-})
+function purchaseEventListener(){
+    document.querySelector('#purchase-btn').addEventListener('click', function () {
+        console.log('click purchase')
+        fetch(`http://localhost:3000/bookings/update`, { method: 'PUT' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result) {
+                    document.location.href = "bookings.html"
+                }
+            });
+    })
+}
+
+
 
 function cartIsEmpty(){
     let nbTrips = document.querySelectorAll('.trip-container').length
