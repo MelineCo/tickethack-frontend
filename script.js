@@ -9,19 +9,20 @@ document.querySelector('#btn-search').addEventListener('click', function(){
     
     fetch(`http://localhost:3000/trips/${departure}/${arrival}/${date}`).then((response) => response.json())
       .then((data) => {
-        console.log(data)
-      })
+            console.log(data)
+      
+      for (let i = 0; i < trips.length; i++) {
+        document.querySelector('#bookings-container').innerHTML += `
+        <div class="${trips[i]._id} trip-container">
+            <div>${trips[i].departure} > ${trips[i].arrival}</div>
+            <div>${trips[i].time}</div>
+            <div>${trips[i].price}€</div>
+            <input class="delete-btn" type="button" value="Book" />
+        </div>`
+      
+       }
+    })
 });
 
 
 
-   // for (let i = 0; i < trips.length; i++) {
-        //     document.querySelector('#trips').inneHTML += `
-        //     <div class="${trips[i]._id} trip-container">
-        //         <div>${trips[i].departure} > ${trips[i].arrival}</div>
-        //         <div>${trips[i].time}</div>
-        //         <div>${trips[i].price}€</div>
-        //         <input class="delete-btn" type="button" value="Book" />
-        //     </div>`
-        //     // Utiliser Moment.js pour récupérer l'heure
-        //    }
