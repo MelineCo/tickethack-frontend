@@ -1,3 +1,9 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
 #enjoy {
     display: flex;
     flex-direction: column;
@@ -32,3 +38,29 @@
     border-radius: 5px;
     margin-bottom: 10px;
 }
+
+#header {
+    display: flex;
+    width: 100vw;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    font-weight: bold;
+ }
+ 
+ #links {
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    height: 120px;
+    width: 150px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 50px;
+ }
+ 
+ #links a {
+    text-decoration: none;
+ }
