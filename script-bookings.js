@@ -3,6 +3,15 @@ fetch('http://localhost:3000/bookings/booked')
     .then(data => {
         console.log(data)
         if (data.AllBookings) {
+            document.querySelector("#cart-container").innerHTML =
+            `
+            <h2>My bookings</h2>
+            <div id="my-bookings"></div>
+            <div id="enjoy">
+                 <div class="divider"></div>
+                 <div class="enjoy-msg">Enjoy your travel with Tickethack!</div>
+            </div>`
+
             for (let i = 0; i < data.AllBookings.length; i++) {
                 const now = new Date()
                 const dateDepart = new Date(data.AllBookings[i].date)
@@ -28,9 +37,19 @@ fetch('http://localhost:3000/bookings/booked')
                 </div>
 			`;
             }
+
+            bookingIsEmpty()
         }
     });
 
-function calculHours() {
-
+function bookingIsEmpty(){
+        let nbTrips = document.querySelectorAll('.booking-container').length
+        console.log(nbTrips)
+        if(nbTrips === 0){
+            document.querySelector("#cart-container").innerHTML = `
+            <div id="empty-bookings">
+                    <p>No booking yet.</p>
+                    <p>Why not plan a trip?</p>
+                </div>`
+        }
 }

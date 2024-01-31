@@ -2,6 +2,13 @@ fetch('http://localhost:3000/bookings/')
     .then(response => response.json())
     .then(data => {
         if (data.AllBookings) {
+
+            document.querySelector("#cart-container").innerHTML =
+            `
+            <h2>My cart</h2>
+            <div id="my-cart"></div>
+            <div id="purchase"></div>`
+
             for (let i = 0; i < data.AllBookings.length; i++) {
                 document.querySelector('#my-cart').innerHTML += `
                 <div class="trip-container" id="${data.AllBookings[i]._id}">
@@ -13,7 +20,15 @@ fetch('http://localhost:3000/bookings/')
 			`;
             }
             updateDeleteCityEventListener();
-            calculTotal()
+            
+
+            document.querySelector('#purchase').innerHTML = `
+                <div class="purchase">Total : <span id="total"></span>€</div>
+                <input class="purchase" id="purchase-btn" type="button" value="Purchase" />
+            `
+            calculTotal();
+            purchaseEventListener();
+            cartIsEmpty();
         }
     });
 
@@ -25,6 +40,8 @@ function updateDeleteCityEventListener() {
                 .then(data => {
                     if (data.result) {
                         this.parentNode.remove();
+                        calculTotal();
+                        cartIsEmpty();
                     }
                 });
         });
@@ -39,12 +56,29 @@ function calculTotal() {
     document.querySelector('#total').textContent = total;
 }
 
-document.querySelector('#purchase-btn').addEventListener('click', function () {
-    fetch(`http://localhost:3000/bookings/update`, { method: 'PUT' })
-        .then(response => response.json())
-        .then(data => {
-            if (data.result) {
-                document.location.href = "bookings.html"
-            }
-        });
-})
+function purchaseEventListener(){
+    document.querySelector('#purchase-btn').addEventListener('click', function () {
+        console.log('click purchase')
+        fetch(`http://localhost:3000/bookings/update`, { method: 'PUT' })
+            .then(response => response.json())
+            .then(data => {
+                if (data.result) {
+                    document.location.href = "bookings.html"
+                }
+            });
+    })
+}
+
+
+
+function cartIsEmpty(){
+    let nbTrips = document.querySelectorAll('.trip-container').length
+    console.log(nbTrips)
+    if(nbTrips === 0){
+        document.querySelector("#cart-container").innerHTML = `
+        <div id="empty-cart">
+                <p>No tickets in your cart.</p>
+                <p>Why not plan a trip?</p>
+            </div>`
+    }
+}
