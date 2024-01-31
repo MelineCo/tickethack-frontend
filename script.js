@@ -13,6 +13,7 @@ document.querySelector('#btn-search').addEventListener('click', function(){
 if (departure === '' || arrival === '' ) { 
         document.querySelector('#bookings-container').innerHTML = `
             <img class="logo" src="images/notfound.png">
+            <div class="divider-green"></div>
             <h4 class="logo-text">No trips found.</h4>
         `
 } else {
@@ -27,6 +28,7 @@ if (departure === '' || arrival === '' ) {
         if (data.Alltrips.length === 0) {
         document.querySelector('#bookings-container').innerHTML = `
             <img class="logo" src="images/notfound.png">
+            <div class="divider-green"></div>
             <h4 class="logo-text">No trips found.</h4>
         `
        } else { // Si trajet trouvé creer liste des trajets dans bookings containers
