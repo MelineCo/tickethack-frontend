@@ -1,3 +1,5 @@
+// const { response } = require("express");
+
 document.querySelector('#btn-search').addEventListener('click', function(){
     console.log('clik src btn detected')
     
@@ -16,12 +18,12 @@ document.querySelector('#btn-search').addEventListener('click', function(){
       .then((data) => {
         console.log(data)
         // Vérifier si trajet existe sinon renvoyer logo Trip not found.
-        if (!data) {
+        if (data.Alltrips.length === 0) {
         document.querySelector('#bookings-container').innerHTML = `
-             <div id="bookings-container">
+            
                 <img class="logo" src="images/notfound.png">
                 <h4 class="logo-text">No trips found.</h4>
-            </div>
+            
         `
        } else { // Si trajet trouvé creer liste des trajets dans bookings containers
         console.log(data.Alltrips.length)
@@ -51,25 +53,32 @@ function buttonAddListener() {
         
        // créer fonction du bouton pour créer nouveau document dans collection Booking avec status is-Paid : False
         function () {
-            console.log(this.id)
-        
-    //             const newBooking = {
-    //             departure: ``,
-    //             arrival: ``,
-    //             date: ``,
-    //             price: ``,
-    //             isPaid: false,
-    //             }
-    //             fetch('http://localhost:3000/bookings/new', {
-    //                 method: 'POST',
-    //                 headers: { 'Content-Type': 'application/json' },
-    //                 body: JSON.stringify(newBooking)
-    //                 })
-    //                 .then(response => response.json())
-    //                 .then(data => {
-    //                 console.log('New trip added to Booking', data);
-    //             });   
+            console.log(this.id) 
+            fetch(`http://localhost:3000/trips/${this.id}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data.trip)
+                    let newBooking =  {
+                        departure: data.trip.departure,
+                        arrival: data.trip.arrival,
+                        date: data.trip.date,
+                        price: data.trip.price,
+                     };
+                    fetch('http://localhost:3000/bookings/new', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(newBooking)
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                        console.log('New trip added to Booking', data);
+                });    
+            })
+
+               
+
        }
+       // AddEventListener clik pour changer de page vers carts
        )
     };
 }
