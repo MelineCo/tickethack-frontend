@@ -20,7 +20,7 @@ if (departure === '' || arrival === '' ) {
 
     // console.log(`http://localhost:3000/trips/${departure}/${arrival}/${date}`)
     
-    fetch(`http://localhost:3000/trips/${departure}/${arrival}/${date}`)
+    fetch(`https://tickethack-backend-umber.vercel.app/trips/${departure}/${arrival}/${date}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.trip)
@@ -60,7 +60,7 @@ function buttonAddListener() {
        // créer fonction du bouton pour créer nouveau document dans collection Booking avec status is-Paid : False
         function () {
             console.log(this.id) 
-            fetch(`http://localhost:3000/trips/${this.id}`)
+            fetch(`https://tickethack-backend-umber.vercel.app/trips/${this.id}`)
                 .then((response) => response.json())
                 .then((data) => {
                     console.log(data.trip)
@@ -70,7 +70,7 @@ function buttonAddListener() {
                         date: data.trip.date,
                         price: data.trip.price,
                      };
-                    fetch('http://localhost:3000/bookings/new', {
+                    fetch('https://tickethack-backend-umber.vercel.app/bookings/new', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify(newBooking)
